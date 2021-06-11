@@ -82,7 +82,7 @@ Aquí abajo se resumen por lo alto todas ellas:
 	      impiden la restauracíon y volver a intentar una restauración personalizada (Estos archivos NO se borrar como Gestor.bck)
 
 #ENGLISH
-# File-Manager
+# File-Gestor
 Author: Saúl Valdelvira Iglesias
 Version: 2.1 (05/27/2021)
 
