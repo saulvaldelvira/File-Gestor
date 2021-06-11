@@ -1,8 +1,7 @@
-# File-Gestor
+# File-Gestor (Spanish)
 Autor: Saúl Valdelvira Iglesias
 Versión: 2.1 (27/05/2021)
 
-#SPANISH 
 Esta es una pequeña aplicación que hice en Python.
 Su principal objetivo es realizar pequeñas tareas relacionadas con el explorador como: cambiar refactorizar los nombres de muchos archivos a la vez, cifrar y descifrar archivos, clasificar carpetas, etc.
 Necesito advertirte de que este NO es un proyecto profesional y que más bien es un desafío personal, ya que soy un principiante en programación y quería familiarizarme con Python. Para eso, te pido que lo uses con precaución. 
@@ -81,8 +80,8 @@ Aquí abajo se resumen por lo alto todas ellas:
 	      restauración como nombre y de extensión .bck en la raiz del programa. Desde ahí podrás revisar los posibles errores que 
 	      impiden la restauracíon y volver a intentar una restauración personalizada (Estos archivos NO se borrar como Gestor.bck)
 
-#ENGLISH
-# File-Gestor
+
+# File-Gestor (English)
 Author: Saúl Valdelvira Iglesias
 Version: 2.1 (05/27/2021)
 
