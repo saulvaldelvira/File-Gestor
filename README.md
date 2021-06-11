@@ -14,12 +14,12 @@ Aquí abajo se resumen por lo alto todas ellas:
 -Refactorizar el contenido: elija una cadena de texto y el programa la eliminará
     del nombre de todos los archivos del fichero, o bien la sustituirá por otra
     cadena que elijas
+    
     Ejemplo: Tengo un fichero con tres archivos (hola.zip, amanecer.txt, trabajo.jpg)
-                si ejecuto esta función y le digo que borre la cadena "a", los nombres
-                de estos archivos pasarán a ser: hol.zip, mnecer.txt y trbjo.jpg
-
-                En cambio si elijo cambiar la cadena "a" por "je" los nuevos nombres 
-                serán: holje.zip, jemjenecer.txt y trjebjejo.jpg 
+             si ejecuto esta función y le digo que borre la cadena "a", los nombres
+             de estos archivos pasarán a ser: hol.zip, mnecer.txt y trbjo.jpg
+	     En cambio si elijo cambiar la cadena "a" por "je" los nuevos nombres 
+             serán: holje.zip, jemjenecer.txt y trjebjejo.jpg 
 
     NOTA: la refactorización NO afecta a las extensiones de los archivos
     NOTA: Todas las operaciones que incluyan refactorizar ficheros (cambiar nombres, mover
