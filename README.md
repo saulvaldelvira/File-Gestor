@@ -18,7 +18,7 @@ Aquí abajo se resumen por lo alto todas ellas:
     Ejemplo: Tengo un fichero con tres archivos (hola.zip, amanecer.txt, trabajo.jpg)
              si ejecuto esta función y le digo que borre la cadena "a", los nombres
              de estos archivos pasarán a ser: hol.zip, mnecer.txt y trbjo.jpg
-	     En cambio si elijo cambiar la cadena "a" por "je" los nuevos nombres 
+	      En cambio si elijo cambiar la cadena "a" por "je" los nuevos nombres 
              serán: holje.zip, jemjenecer.txt y trjebjejo.jpg 
 
     NOTA: la refactorización NO afecta a las extensiones de los archivos
