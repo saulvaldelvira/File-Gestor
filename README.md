@@ -72,11 +72,9 @@ Aquí abajo se resumen por lo alto todas ellas:
 -Restaurar cambios: Restaura los cambios realizados. 
     Cuenta con 3 opciones: 
         -De la sesión: Deshará todos los cabios realizados unicamente en esta sesión (cambios de nombre, de ubicación, 
-		refactorizaciones, etc..) todos estos cambios se guardan en un archivo de Backup, que se eliminará al 
-		final de la sesión
+		refactorizaciones, etc..) todos estos cambios se guardan en un archivo de Backup, que se eliminará al final de la sesión
         -Restauración personalizada: Elije un archivo .bck con los cambios específicos que quieras revertir
-
-        -De la papelera de reciclaje: Retsuara TODOS los archivos eliminados que se conserven en la papelera
+	-De la papelera de reciclaje: Retsuara TODOS los archivos eliminados que se conserven en la papelera
 
         NOTA: si hubiere cualquier problema en la restauración , se creará un archivo expecial con la fecha y hora de la 
 	      restauración como nombre y de extensión .bck en la raiz del programa. Desde ahí podrás revisar los posibles errores que 
