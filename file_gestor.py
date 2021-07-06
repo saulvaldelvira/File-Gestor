@@ -604,8 +604,7 @@ def recover_versions():
 
 def recover_security():
     archive=input("De que carpeta quieres recuperar la copia de seguridad? (introducir ruta): ")
-    folder=security_folder + os.sep + str(path.abspath(archive)).split(os.sep)[-2]
-
+    folder=clean_input_paths(clean_input_paths(security_folder + os.sep + str(path.abspath(archive)).split(os.sep)[-1]))
     print("\nVERSIONES DISPONIBLES:")
     dir=os.getcwd()
     os.chdir(folder)
@@ -623,8 +622,10 @@ def recover_security():
     print("Quieres desencriptar los archivos?")
     if(ask_if_yes()):
         decrypt=True
-        if path.exists(folder+os.sep+"key.key"):
+        key=folder+os.sep+vers+os.sep+"key.key"
+        if (path.exists(key)==False):
             key=encryptor_key
+        
 
     f=open(folder + os.sep + vers + os.sep + "security_copy.bck" , "r")
     lines=f.readlines()
@@ -633,21 +634,21 @@ def recover_security():
     filtered=[]
     for l in lines:
         l=l.split("\t")
-        name=os.path.split(l[1])[1].replace("\n", "")
-        if(name==vers):
-            old=l[1].replace("\n", "")
-            new=l[0]
+        #name=os.path.split(l[1])[1].replace("\n", "")
+        #if(name==vers):
+        old=l[1].replace("\n", "")
+        new=l[0]
 
-            if(decrypt==True):
-                if(is_folder(l[1].replace("\n", ""))):
-                    folders=decrypt_folder()
-                    recursivity(folders, decrypt_folder, None)
-                else:
-                    Encryptor.decrypt(l[1].replace("\n", ""), Encryptor.load_key(key))
+        if(decrypt):
+            if(is_folder(l[1].replace("\n", ""))):
+                folders=decrypt_folder()
+                recursivity(folders, decrypt_folder, None)
+            else:
+                Encryptor.decrypt(l[1].replace("\n", ""), Encryptor.special_key(key))
 
-            os.replace(old, new)
-        else:
-            filtered.append("".join(l))
+        os.replace(old, new)
+        #else:
+        #    filtered.append("".join(l))
 
     f=open(folder + os.sep + "versions.bck" , "w")
     f.writelines(filtered)

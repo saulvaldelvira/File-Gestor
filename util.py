@@ -214,6 +214,9 @@ class Encryptor():
         with open(Encryptor.key, "wb") as key_file:
             key_file.write(key)
 
+    def special_key(key):
+        return open(key, "rb").read()
+
     def input_key(key):
         with open(Encryptor.key, "wb") as key_file:
             key_file.write(key)
