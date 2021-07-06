@@ -71,20 +71,21 @@ def set_directory():
         set_directory()
 
 def check_reciclying_bin():
-    for f in os.listdir(recycling_bin):
-        this_file=recycling_bin + os.sep + f
-        if not os.listdir(this_file):
-            os.rmdir(this_file)
-        else:
-            i=time_passed(f, "%Y-%m-%d")
-            
-        if(i.days>=30):
-            print("\nLa carpeta de reciclaje " + f +" va a ser eliminada")  
-            print("Estás seguro de que quieres eliminarla? (esta acción no se puede deshacer)")    
-            if(ask_if_yes()):
-                shutil.rmtree(this_file)
-        elif(i.days>=25):
-            print("La carpeta de reciclaje " + f +" va a ser eliminada pronto")
+    if(path.exists(recycling_bin)):
+        for f in os.listdir(recycling_bin):
+            this_file=recycling_bin + os.sep + f
+            if not os.listdir(this_file):
+                os.rmdir(this_file)
+            else:
+                i=time_passed(f, "%Y-%m-%d")
+                
+            if(i.days>=30):
+                print("\nLa carpeta de reciclaje " + f +" va a ser eliminada")  
+                print("Estás seguro de que quieres eliminarla? (esta acción no se puede deshacer)")    
+                if(ask_if_yes()):
+                    shutil.rmtree(this_file)
+            elif(i.days>=25):
+                print("La carpeta de reciclaje " + f +" va a ser eliminada pronto")
 
 def check_version_history():
     if(path.exists(version_history)==False):
