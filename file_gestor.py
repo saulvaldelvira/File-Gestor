@@ -19,7 +19,6 @@ version_history=os.getcwd() + os.sep + "VERSION HISTORY"
 encryptor_key=os.getcwd() + os.sep + "key.key"
 security_folder=os.getcwd() + os.sep + "SECURITY COPY"
 
-
 def main():
     set_up()
     a=-1
