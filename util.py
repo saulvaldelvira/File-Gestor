@@ -141,7 +141,7 @@ class Logger():
     from inspect import currentframe, getframeinfo
     filename=str()
 
-    def log(message,):
+    def log(message: str):
         f=open(Logger.filename, "a")
         time=Logger.get_time()
         f.write(time + "  " + message + "\n")
@@ -181,7 +181,7 @@ class Logger():
 class File:
     filename=str()
     
-    def back_up(old, new, folder):
+    def back_up(old:str, new:str, folder:str):
         if(folder==None):
            f=open(File.filename, "a")
         else:
@@ -194,15 +194,15 @@ class File:
         if(path.exists(File.filename)):
             os.remove(File.filename)
 
-    def save_file(new_name, errors):
+    def save_file(new_name:str, errors:str):
         b=open(str(new_name), "w")
         b.writelines(errors)
         b.close()
 
-    def get_date_and_time_for_file():
+    def get_date_and_time_for_file()->str:
         return str(datetime.now().date()) +" "+ str(datetime.now().hour) + "_" +str(datetime.now().minute) 
 
-    def get_date_for_file():
+    def get_date_for_file()->str:
         return str(datetime.now().date())
     
 class Encryptor():

@@ -18,6 +18,8 @@ recycling_bin=os.getcwd() + os.sep + "RECYCLYING BIN"
 version_history=os.getcwd() + os.sep + "VERSION HISTORY" 
 encryptor_key=os.getcwd() + os.sep + "key.key"
 security_folder=os.getcwd() + os.sep + "SECURITY COPY"
+debug_folder = "C:\\users\\saulv\\desktop\\prueba"
+exit_word="<EXIT>"
 
 def main():
     set_up()
@@ -58,7 +60,8 @@ def set_up():
 
 def set_directory():
     location=input("\nRuta de la carpeta en la que trabajar: ")
-
+    if(location=="%DEBUG%"):
+        location=debug_folder
     #si la cadena introducida tiene comillas, se las quita para que no las duplique ( "" ruta "" -> "ruta")
     location = clean_input_paths(location)
 
@@ -121,7 +124,7 @@ def print_options():
     print("8-Editar archivo")
     print("9-Abrir archivo")
     print("10-Encriptar/Desencriptar archivo")
-    print("11-Salvaguardar archivos")
+    #print("11-Salvaguardar archivos")
     print("0-Terminar")
     print("*-Cambiar de localización")
     print("?-Directorio actual")
@@ -154,8 +157,8 @@ def process(a):
         launch_file()
     elif(a=="10"):
         encrypt_decrypt()
-    elif(a=="11"):
-        security_copy()
+    #elif(a=="11"):
+    #    security_copy()
     elif(a=="*"):
         set_directory()
     elif(a=="?"):
@@ -499,7 +502,7 @@ def clasify():
 def restore():
     filename=str()
     print("Deseas restaurar los cambios de esta sesión, desde un archivo personalizado, desde la papelera de reciclaje, o desde el historial de versiones?")
-    option=input("(a)Está sesión, (b)Restauración personalizada, (c)papelera de reciclaje, (d)historial de versiones, (s)copia de seguridad : ")
+    option=input("(a)Está sesión, (b)Restauración personalizada, (c)papelera de reciclaje, (d)historial de versiones : ")
     if(option=="b"):
         filename=clean_input_paths(input("\nDonde se encuentra el archivo .bck?: "))
         print("\nEstás seguro de que quieres restaurar TODOS los cambios en este archivo de guardado?")  
@@ -516,12 +519,12 @@ def restore():
         un_recycle()
     elif(option=="d"):
         recover_versions()
-    elif(option=="s"):
-        recover_security()
+    #elif(option=="s"):
+    #    recover_security()
     else:
         raise InvalidArgumentException("ERROR [" + Logger.HERE(False) + "] El parámetro especificado no concide con a, b , c o d")
 
-def recall_backup(filename):
+def recall_backup(filename: str):
     bck=File.filename
     File.filename=filename
     f=open(filename, "r")
@@ -601,6 +604,7 @@ def recover_versions():
     f.writelines(filtered)
     f.close()
 
+'''
 def recover_security():
     archive=input("De que carpeta quieres recuperar la copia de seguridad? (introducir ruta): ")
     folder=clean_input_paths(clean_input_paths(security_folder + os.sep + str(path.abspath(archive)).split(os.sep)[-1]))
@@ -617,7 +621,7 @@ def recover_security():
         print("\nLa entrada es incorrecta, recuerda usar el formato especificado, y que la verison elegida esté en la lista")
         vers=input("\t Formato:YYYY-MM-DD      Ejemplo: 2021-05-27: ")
 
-
+    decrypt=False
     print("Quieres desencriptar los archivos?")
     if(ask_if_yes()):
         decrypt=True
@@ -652,6 +656,7 @@ def recover_security():
     f=open(folder + os.sep + "versions.bck" , "w")
     f.writelines(filtered)
     f.close()
+'''
 
 #RESUME
 def show_resume():
@@ -742,7 +747,7 @@ def delete_folder(file):
 
 #/help
 def show_readme():
-    readme=this_location + os.sep + "README.txt"
+    readme=this_location + os.sep + "README.md"
     os.startfile(readme)
     
 #FILE EDITOR
@@ -750,6 +755,7 @@ def file_editor():
 
     file=clean_input_paths(input("Archivo que abrir(Recuerda incluir la extensión): "))
     while(path.exists(file)==False):
+        if(file==exit_word): return
         print("El archivo no se encuentra en el fichero de trabajo actual (" + os.getcwd() + ")")
         file=clean_input_paths(input("Recuerda incluir la extensión e incluir la ruta completa si se encuentra fuera del fichero de trabajo actual: "))
     
@@ -879,6 +885,7 @@ def decrypt_folder():
 
     return folders
 
+'''
 #SAVE
 def security_copy():
     print("Quieres hacer una copia de un archivo, o de todo el fichero?")
@@ -924,11 +931,11 @@ def secure(f, crypt):
     elif(path.exists(specific_bin)==False):
         os.mkdir(specific_bin)
 
-    '''
-    file=open(specific_bin + os.sep + "info.txt")
-    l=file.readline.replace("\n", "").split("\t")
-    if(l[0]!=str(path.abspath(f)).split(os.sep)[-1]): raise SameNameException(str(path.abspath(f)).split(os.sep)[-1])
-    '''
+    
+    #file=open(specific_bin + os.sep + "info.txt")
+    #l=file.readline.replace("\n", "").split("\t")
+    #if(l[0]!=str(path.abspath(f)).split(os.sep)[-1]): raise SameNameException(str(path.abspath(f)).split(os.sep)[-1])
+    
 
     file=open(specific_bin + os.sep + "info.txt", "w")
     file.write(path.abspath(f) + "\t" + specific_bin + " \n")
@@ -957,6 +964,7 @@ def secure(f, crypt):
             Encryptor.encrypt(file, Encryptor.load_key())
 
         shutil.copy(encryptor_key, specific_bin + os.sep + "key.key")
+'''
 
 main()
 
