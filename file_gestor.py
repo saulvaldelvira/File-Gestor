@@ -123,7 +123,7 @@ def print_options():
     print("7-Eliminar contenido")
     print("8-Editar archivo")
     print("9-Abrir archivo")
-    print("10-Encriptar/Desencriptar archivo")
+    #print("10-Encriptar/Desencriptar archivo")
     #print("11-Salvaguardar archivos")
     print("0-Terminar")
     print("*-Cambiar de localización")
