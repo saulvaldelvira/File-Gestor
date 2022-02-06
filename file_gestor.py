@@ -22,6 +22,12 @@ debug_folder = "C:\\users\\saulv\\desktop\\prueba"
 exit_word="<EXIT>"
 
 def main():
+    print("***********************************************************************************************\n" +
+    "Aplicación hecha por Saúl Valdelvira\n\nAVISO: Esta aplicación " + 
+    "NO es un proyecto profesional y no me responsabilizo de las consecuencias \n"+
+    "de su ejecución en ningún ordenador." + 
+    " Aún así, espero que sea de utlidad. \nPodeis comunicarme cualquier duda/incidencia por correo electrónico saulvaldelvira@gmail.com  \n" + 
+    "***********************************************************************************************")
     set_up()
     a=-1
     while(a!="0"):
